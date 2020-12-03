@@ -1,14 +1,21 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import "./App.css";
+import { getAllTasks } from "./store/todo/todo.action";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllTasks());
+  }, [dispatch]);
+
   return (
     <div className="App">
       <div id="myDIV" className="header">
         <h2>My To Do List</h2>
         <input type="text" id="myInput" placeholder="Title..." />
-        <span onclick="newElement()" className="addBtn">
-          Add
-        </span>
+        <span className="addBtn">Add</span>
       </div>
 
       <ul id="myUL">
@@ -19,7 +26,6 @@ function App() {
         <li>Read a book</li>
         <li>Organize office</li>
       </ul>
-      
     </div>
   );
 }
