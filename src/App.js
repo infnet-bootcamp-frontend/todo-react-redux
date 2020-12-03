@@ -1,14 +1,22 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import { getAllTasks } from "./store/todo/todo.action";
+import { getAllTasks, checkedTask } from "./store/todo/todo.action";
 
 function App() {
   const dispatch = useDispatch();
+  const todoState = useSelector((state) => state.todos.all);
+  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     dispatch(getAllTasks());
-  }, [dispatch]);
+    setUpdate(false);
+  }, [dispatch, update]);
+
+  const checkedHandle = (todo, i) => {
+    dispatch(checkedTask(todo, i));
+    setUpdate(true);
+  };
 
   return (
     <div className="App">
@@ -19,12 +27,15 @@ function App() {
       </div>
 
       <ul id="myUL">
-        <li>Hit the gym</li>
-        <li className="checked">Pay bills</li>
-        <li>Meet George</li>
-        <li>Buy eggs</li>
-        <li>Read a book</li>
-        <li>Organize office</li>
+        {todoState.map((todo, index) => (
+          <li
+            onClick={() => checkedHandle(todo, index)}
+            key={todo.id}
+            className={todo.done ? "checked" : ""}
+          >
+            {todo.title}
+          </li>
+        ))}
       </ul>
     </div>
   );

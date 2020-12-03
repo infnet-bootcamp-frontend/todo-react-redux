@@ -7,11 +7,12 @@ const reducer = (state = INITIAL_STATE, action) => {
     case "GET_ALL_TASKS":
       state.all = action.data;
       return state;
+    case "UPDATE_TASK":
+      state.all[action.index] = action.data;
+      return state;
     default:
       return state;
   }
-
-  return state;
 };
 
 export default reducer;
