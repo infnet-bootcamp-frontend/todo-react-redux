@@ -1,19 +1,14 @@
 {
   "todos": [
     {
-      "id": 0,
+      "done": false,
+      "title": "Ir ao supermercado",
+      "id": 1
+    },
+    {
       "title": "Lavar o carro",
-      "done": false
-    },
-    {
-      "id": 1,
-      "title": "Varrer o quintal",
-      "done": false
-    },
-    {
-      "id": 2,
-      "title": "Ir ao Supermercado",
-      "done": false
+      "id": 3,
+      "done": true
     }
   ]
 }

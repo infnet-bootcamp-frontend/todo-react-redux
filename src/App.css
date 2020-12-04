@@ -56,6 +56,12 @@ ul li.checked::before {
   width: 7px;
 }
 
+ul li span {
+  float: right;
+  padding: 0 20px;
+  color: red;
+}
+
 /* Style the close button */
 .close {
   position: absolute;
@@ -65,13 +71,13 @@ ul li.checked::before {
 }
 
 .close:hover {
-  background-color: #f44336;
+  background-color: #3DAAE0;
   color: white;
 }
 
 /* Style the header */
 .header {
-  background-color: #f44336;
+  background-color: #3DAAE0;
   padding: 30px 40px;
   color: white;
   text-align: center;
@@ -99,8 +105,8 @@ input {
 .addBtn {
   padding: 10px;
   width: 25%;
-  background: #d9d9d9;
-  color: #555;
+  background: #214C68;
+  color: #FFF;
   float: left;
   text-align: center;
   font-size: 16px;
@@ -109,6 +115,6 @@ input {
   border-radius: 0;
 }
 
-.addBtn:hover {
+.addBtn:disabled {
   background-color: #bbb;
 }

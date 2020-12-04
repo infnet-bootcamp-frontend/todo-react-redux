@@ -10,6 +10,9 @@ const reducer = (state = INITIAL_STATE, action) => {
     case "UPDATE_TASK":
       state.all[action.index] = action.data;
       return state;
+    case "CREATE_TASK":
+      state.all.push(action.data) ;
+      return state;
     default:
       return state;
   }
